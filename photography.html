@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Clicks - Full Photo Stacked Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .brand i {
+            color: #000000;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: all 0.2s ease;
+            border-radius: 8px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: #000000;
+            background: #f0f0f0;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #111;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+        
+        .book-btn {
+            background: #000000;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            border: 1px solid #000000;
+        }
+        
+        .book-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+        
+        .gallery-section {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #666666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Stacked photo gallery styles */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .stack {
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            margin: 0 auto;
+            height: 70vh;
+            max-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo-card {
+            position: absolute;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+        
+        .photo-card:hover {
+            transform: scale(1.02) !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        /* Enhanced stacking effect - more dramatic positioning */
+        .photo-card:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            z-index: 6;
+            transform: translateY(-20px) rotate(-3deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .photo-card:nth-child(2) {
+            width: 95%;
+            height: 95%;
+            z-index: 5;
+            opacity: 0.95;
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .photo-card:nth-child(3) {
+            width: 90%;
+            height: 90%;
+            z-index: 4;
+            opacity: 0.9;
+            transform: translateY(0px) rotate(-2deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .photo-card:nth-child(4) {
+            width: 85%;
+            height: 85%;
+            z-index: 3;
+            opacity: 0.8;
+            transform: translateY(10px) rotate(3deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .photo-card:nth-child(5) {
+            width: 80%;
+            height: 80%;
+            z-index: 2;
+            opacity: 0.7;
+            transform: translateY(20px) rotate(-2deg);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .photo-card:nth-child(6) {
+            width: 75%;
+            height: 75%;
+            z-index: 1;
+            opacity: 0.6;
+            transform: translateY(30px) rotate(2deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .photo-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .counter {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10;
+        }
+        
+        .instructions {
+            text-align: center;
+            margin: 2rem 0;
+            color: #666666;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .instructions i {
+            color: #000000;
+            font-size: 1.3rem;
+        }
+        
+        .navigation-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .dot.active {
+            background: #000000;
+            transform: scale(1.3);
+        }
+        
+        .btn {
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid #000000;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+        
+        .controls {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666666;
+            margin-top: auto;
+            width: 100%;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .stack {
+                width: 95%;
+                height: 60vh;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-section {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stack {
+                height: 50vh;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .photo-card:nth-child(1) {
+                width: 95%;
+                height: 95%;
+            }
+            
+            .photo-card:nth-child(2) {
+                width: 93%;
+                height: 93%;
+            }
+            
+            .photo-card:nth-child(3) {
+                width: 91%;
+                height: 91%;
+            }
+            
+            .photo-card:nth-child(4) {
+                width: 89%;
+                height: 89%;
+            }
+            
+            .photo-card:nth-child(5) {
+                width: 87%;
+                height: 87%;
+            }
+            
+            .photo-card:nth-child(6) {
+                width: 85%;
+                height: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="brand">
+                <i class="fas fa-camera"></i>
+                Creative Clicks
+            </a>
+            <nav class="header-center">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photography.html" class="active">Photography</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="book.html" class="book-btn">Book Now</a>
+            </div>
+        </header>
+
+        <section class="gallery-section">
+            <h1>Photography Portfolio</h1>
+            <p class="subtitle">Explore our collection of event photography. Each photo is displayed in its entirety without cropping.</p>
+            
+            <div class="gallery-container">
+                <div class="stack" id="photoStack">
+                    <div class="photo-card" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=600&h=400&fit=crop" alt="Corporate Event" class="photo-image">
+                        <div class="counter">1/6</div>
+                    </div>
+                    <div class="photo-card" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=600&h=400&fit=crop" alt="Wedding Photography" class="photo-image">
+                        <div class="counter">2/6</div>
+                    </div>
+                    <div class="photo-card" data-index="3">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="Portrait Session" class="photo-image">
+                        <div class="counter">3/6</div>
+                    </div>
+                    <div class="photo-card" data-index="4">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&h=400&fit=crop" alt="Product Photography" class="photo-image">
+                        <div class="counter">4/6</div>
+                    </div>
+                    <div class="photo-card" data-index="5">
+                        <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=600&h=400&fit=crop" alt="Landscape Photography" class="photo-image">
+                        <div class="counter">5/6</div>
+                    </div>
+                    <div class="photo-card" data-index="6">
+                        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&h=400&fit=crop" alt="Event Coverage" class="photo-image">
+                        <div class="counter">6/6</div>
+                    </div>
+                </div>
+                
+                <p class="instructions">
+                    <i class="fas fa-mouse-pointer"></i>
+                    Click on the top photo to reveal the one behind it, or use the navigation buttons below
+                </p>
+                
+                <div class="navigation-dots">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                    <div class="dot" data-index="3"></div>
+                    <div class="dot" data-index="4"></div>
+                    <div class="dot" data-index="5"></div>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn" id="prevBtn">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn" id="nextBtn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <footer>
+            <p>&copy; 2025 Creative Clicks. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stack = document.getElementById('photoStack');
+            const cards = Array.from(stack.getElementsByClassName('photo-card'));
+            const dots = Array.from(document.getElementsByClassName('dot'));
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            let currentIndex = 0;
+            const totalCards = cards.length;
+            
+            // Initialize the stack
+            function initializeStack() {
+                cards.forEach((card, index) => {
+                    const position = (index - currentIndex + totalCards) % totalCards;
+                    updateCardPosition(card, position);
+                });
+                updateDots();
+            }
+            
+            // Update card position based on its position in the stack
+            function updateCardPosition(card, position) {
+                // Calculate size and position based on stack order
+                const sizeFactor = 1 - (position * 0.05);
+                const translateY = position * 15;
+                const opacity = Math.max(0.6, 1 - (position * 0.08));
+                const zIndex = totalCards - position;
+                const rotation = position % 2 === 0 ? -position * 2 : position * 2;
+                
+                // Apply styles with enhanced stacking
+                card.style.width = `${100 - (position * 5)}%`;
+                card.style.height = `${100 - (position * 5)}%`;
+                card.style.opacity = opacity;
+                card.style.zIndex = zIndex;
+                card.style.transform = `translateY(${translateY}px) rotate(${rotation}deg)`;
+                card.style.boxShadow = `0 ${15 + position * 5}px ${30 + position * 10}px rgba(0, 0, 0, ${0.2 + position * 0.05})`;
+                
+                // Update counter text
+                const counter = card.querySelector('.counter');
+                counter.textContent = `${position + 1}/${totalCards}`;
+            }
+            
+            // Update navigation dots
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Move to next card
+            function nextCard() {
+                currentIndex = (currentIndex + 1) % totalCards;
+                updateStack();
+            }
+            
+            // Move to previous card
+            function prevCard() {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                updateStack();
+            }
+            
+            // Update the entire stack
+            function updateStack() {
+                cards.forEach((card, index) => {
+                    const cardIndex = parseInt(card.getAttribute('data-index')) - 1;
+                    const position = (cardIndex - currentIndex + totalCards) % totalCards;
+                    updateCardPosition(card, position);
+                });
+                updateDots();
+            }
+            
+            // Add click event to the stack with visual feedback
+            stack.addEventListener('click', function(e) {
+                // Add a brief visual feedback
+                const topCard = cards[currentIndex];
+                topCard.style.transform = topCard.style.transform + ' scale(0.95)';
+                setTimeout(() => {
+                    nextCard();
+                }, 150);
+            });
+            
+            // Add click events to navigation dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateStack();
+                });
+            });
+            
+            // Add click events to navigation buttons
+            prevBtn.addEventListener('click', prevCard);
+            nextBtn.addEventListener('click', nextCard);
+            
+            // Initialize the stack
+            initializeStack();
+            
+            // Auto-rotate every 8 seconds
+            setInterval(nextCard, 8000);
+        });
+        
+    </script>
+</body>
+</html>

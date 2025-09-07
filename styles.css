@@ -1,0 +1,759 @@
+/* Uiverse.io Booking Form Styles (Overrides) */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+}
+.form:hover {
+    transform: scale(1.05);
+    border: 1px solid #222;
+}
+#heading {
+    text-align: center;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+}
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+.input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: white;
+}
+.input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+}
+.form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+}
+.button1 {
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+}
+.button1:hover {
+    background-color: #111;
+    color: white;
+}
+.button2 {
+    padding: 0.5em;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+}
+.button2:hover {
+    background-color: #111;
+    color: white;
+}
+.button3 {
+    margin-bottom: 3em;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+}
+.button3:hover {
+    background-color: #111;
+    color: white;
+}
+:root{
+    --bg:#ffffff;
+    --card:#f8f8f8;
+    --muted:#666666;
+    --accent:#000000;
+    --glass: rgba(0,0,0,0.05);
+    --radius:8px;
+    --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    --primary-text: #000000;
+    --secondary-text: #666666;
+    --border-color: #e0e0e0;
+    --hover-bg: #f0f0f0;
+    font-family: var(--font-family);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color: var(--primary-text);
+  background: var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  font-size:16px;
+  font-family: var(--font-family);
+}
+
+/* Reset and base styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #111;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    height: 60px;
+    filter: grayscale(1) brightness(1.2);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+}
+nav a:hover, nav a.active {
+    color: var(--primary-text);
+    background: var(--hover-bg);
+}
+.section {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg);
+    color: var(--primary-text);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+h1, h2, h3 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-text);
+    letter-spacing: 1px;
+}
+.cta {
+    display: inline-block;
+    margin: 1rem 1rem 0 0;
+    padding: 0.75rem 2rem;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid var(--accent);
+}
+.cta:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+.team-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.team-member {
+    background: var(--card);
+    color: var(--primary-text);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    width: 200px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+.team-member:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+.team-member img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    border: 2px solid #111;
+}
+.gallery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery img {
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--bg);
+    color: var(--primary-text);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-top: 1rem;
+}
+form label {
+    color: var(--primary-text);
+    font-weight: 500;
+}
+form input, form select {
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg);
+    color: var(--primary-text);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+form input:focus, form select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+form button {
+    background: var(--accent);
+    color: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+form button:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+#workshopPrice, #bookingPrice {
+    color: var(--primary-text);
+    font-weight: 600;
+}
+#bookingMessage {
+    color: var(--primary-text);
+    background: var(--card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg);
+    color: var(--secondary-text);
+    margin-top: 2rem;
+    font-size: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* container */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 20px;
+}
+
+/* header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:60;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(7,12,25,0.6), rgba(7,12,25,0.45));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-weight:800;letter-spacing:0.4px;color:#111;text-decoration:none}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav a:hover{color:#111;background:rgba(255,255,255,0.02)}
+.cta{background:linear-gradient(90deg,var(--accent),#ff8a66);color:#081220;padding:8px 12px;border-radius:10px;font-weight:600}
+.mobile-toggle{display:none;background:none;border:0;color:var(--muted);font-size:20px}
+
+/* hero */
+.hero{padding:60px 0}
+.hero-grid{display:grid;grid-template-columns:1fr 480px;gap:32px;align-items:center}
+.hero h1{font-size:44px;margin:0 0 12px}
+.hero p{color:var(--muted);margin:0 0 18px}
+.hero-cta .btn{margin-right:12px}
+
+/* image card */
+.hero-image img{width:100%;height:320px;object-fit:cover;border-radius:16px;box-shadow:0 8px 40px rgba(2,6,23,0.6)}
+
+/* sections */
+.split{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+.about-image img{width:100%;border-radius:12px;object-fit:cover}
+.work h2, .team h2{margin-top:0}
+.muted{color:var(--muted)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.card{overflow:hidden;border-radius:10px}
+.card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .45s}
+.card img:hover{transform:scale(1.05)}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.member{background:var(--glass);padding:18px;border-radius:12px;text-align:center}
+.member img{width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+
+/* workshop */
+.workshop-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px}
+.form-row{display:flex;gap:12px;margin-top:12px}
+input, select, textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:#111;outline:none;width:100%}
+input::placeholder, textarea::placeholder{color:rgba(230,238,246,0.45)}
+.btn{background:var(--accent);border:0;padding:10px 16px;border-radius:10px;color:#081220;font-weight:700;cursor:pointer}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff}
+
+/* contact */
+.contact-form{display:grid;gap:12px;max-width:700px;margin-top:12px}
+
+/* footer */
+.site-footer{padding:20px 0;background:transparent;border-top:1px solid rgba(255,255,255,0.03)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+.socials a{margin-left:12px;color:var(--muted);text-decoration:none}
+
+/* header layout */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+}
+.book-btn {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border: 1px solid var(--accent);
+}
+.book-btn:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+/* hero section */
+.hero-section {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('hero-bg.jpg') center/cover no-repeat;
+    filter: brightness(0.7);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #111;
+    padding: 4rem 2rem;
+}
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--primary-text);
+}
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    line-height: 1.3;
+    color: var(--secondary-text);
+}
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.hero-btn {
+    padding: 1rem 2.2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.hero-btn.dark {
+    background: var(--accent);
+    color: var(--bg);
+    border: 1px solid var(--accent);
+}
+.hero-btn.dark:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+.hero-btn.light {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+.hero-btn.light:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border: 1px solid var(--accent);
+}
+
+/* booking section */
+.book-section {
+    background: transparent;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.book-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+.book-subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+.book-card {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    padding: 0;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin-bottom: 2rem;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-text);
+    margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select {
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg);
+    color: var(--primary-text);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    transition: border-color 0.2s ease;
+}
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+.framing-label {
+    font-weight: 500;
+    color: var(--primary-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.form-price {
+    color: var(--primary-text);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 1.2rem 0 1.5rem 0;
+    letter-spacing: 1px;
+}
+.form-btn {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.form-btn:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+.form-group .framing-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-text);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.form-group .framing-label input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+}
+@media (max-width: 700px) {
+    .book-title {
+        font-size: 2rem;
+    }
+    .book-card {
+        padding: 1.2rem 0.5rem;
+    }
+    .form-title {
+        font-size: 1.2rem;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* responsive */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .split{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .nav{display:none}
+  .mobile-toggle{display:block}
+  .gallery{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .hero h1{font-size:30px}
+}
+@media (max-width: 700px) {
+    .section {
+        padding: 2rem 1rem;
+    }
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav ul {
+        gap: 1rem;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    .header-center ul {
+        gap: 0.5rem;
+    }
+}
+.work-subsection {
+    margin-bottom: 2.5rem;
+}
+.work-subsection h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+.video-gallery {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.video-gallery video {
+    width: 320px;
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #000;
+}
+@media (max-width: 700px) {
+    .video-gallery video {
+        width: 100%;
+        height: auto;
+    }
+}
+.work-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+.work-links .cta {
+    font-size: 1.1rem;
+    padding: 1rem 2.2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--accent);
+    color: var(--bg);
+    transition: all 0.2s ease;
+    border: 1px solid var(--accent);
+}
+.work-links .cta:hover {
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+/* Unique calendar (date input) styles */
+input[type="date"] {
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg);
+    color: var(--primary-text);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    outline: none;
+    cursor: pointer;
+}
+input[type="date"]:focus {
+    border-color: var(--accent);
+}
+
+/* Unique dropdown (select) styles */
+select {
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg);
+    color: var(--primary-text);
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23000000" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 18px 18px;
+}
+select:focus {
+    border-color: var(--accent);
+}
