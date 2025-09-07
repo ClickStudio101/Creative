@@ -6,6 +6,71 @@
     <title>Creative Clicks - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/Creative clicks logo.jpeg">
+    <style>
+        /* From Uiverse.io by Praashoo7 */
+        .card {
+          width: 17em;
+          height: 22.5em;
+          background: #171717;
+          transition: 1s ease-in-out;
+          clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+          border-top-right-radius: 20px;
+          border-bottom-left-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          margin: 2em auto;
+          padding: 1em;
+        }
+
+        .card span {
+          font-weight: bold;
+          color: white;
+          text-align: center;
+          display: block;
+          font-size: 1.2em;
+          margin-top: 0.5em;
+        }
+
+        .card .info {
+          font-weight: 400;
+          color: white;
+          display: block;
+          text-align: center;
+          font-size: 0.8em;
+          margin: 1em;
+        }
+
+        .card .img {
+          width: 4.8em;
+          height: 4.8em;
+          background: white;
+          border-radius: 15px;
+          margin: auto;
+        }
+
+        .card .share {
+          margin-top: 1em;
+          display: flex;
+          justify-content: center;
+          gap: 1em;
+        }
+
+        .card a {
+          color: white;
+          transition: .4s ease-in-out;
+        }
+
+        .card a:hover {
+          color: red;
+        }
+
+        .team-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 2em;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -39,30 +104,45 @@
             </div>
         </section>
 
-        <!-- About -->
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Creative Clicks is passionate about capturing moments and teaching the art of photography. We host events and workshops to inspire young talent and offer professional photography and videography services for all occasions.</p>
-        </section>
-
         <!-- Team -->
         <section id="team" class="section">
             <h2>Meet the Team</h2>
             <div class="team-grid">
-                <div class="team-member">
-                    <img src="team1.jpg" alt="Team Member 1">
-                    <h3>Akhil Mandaleeka</h3>
-                    <p>CEO, Lead Photographer & Videographer</p>
+                <div class="card">
+                    <div class="img"></div>
+                    <span>Akhil Mandaleeka</span>
+                    <p class="info">CEO, Photographer & Videographer</p>
+                    <div class="share">
+                        <a href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003z"/>
+                          </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="team2.jpg" alt="Team Member 2">
-                    <h3>Kostik Savin</h3>
-                    <p>Photographer</p>
+                <div class="card">
+                    <div class="img"></div>
+                    <span>Kostik Savin</span>
+                    <p class="info">Photographer</p>
+                    <div class="share">
+                        <a href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003z"/>
+                          </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="team3.jpg" alt="Team Member 3">
-                    <h3>Karman Hora</h3>
-                    <p>Social Media Lead</p>
+                <div class="card">
+                    <div class="img"></div>
+                    <span>Karman Hora</span>
+                    <p class="info">Social Media Lead & Website Creator</p>
+                    <div class="share">
+                        <a href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003z"/>
+                          </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -172,7 +252,6 @@
         </div>
     </footer>
 
-
     <script>
         function updateTotalCost() {
             const service = document.getElementById('service').value;
@@ -186,7 +265,6 @@
         document.getElementById('service').addEventListener('change', updateTotalCost);
         document.getElementById('hours').addEventListener('input', updateTotalCost);
         window.addEventListener('DOMContentLoaded', updateTotalCost);
-
     </script>
 </body>
 </html>
