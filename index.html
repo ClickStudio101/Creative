@@ -6,11 +6,113 @@
     <title>Creative Clicks - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/Creative clicks logo.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Uiverse.io Card Styles for Team Members */
+        .team-card {
+            width: 17em;
+            height: 22.5em;
+            background: #171717;
+            transition: 1s ease-in-out;
+            clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            margin: 1em;
+        }
+
+        .team-card span {
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            display: block;
+            font-size: 1em;
+            margin-top: 0.5em;
+        }
+
+        .team-card .info {
+            font-weight: 400;
+            color: white;
+            display: block;
+            text-align: center;
+            font-size: 0.72em;
+            margin: 1em;
+        }
+
+        .team-card .img {
+            width: 4.8em;
+            height: 4.8em;
+            background: white;
+            border-radius: 15px;
+            margin: auto;
+            margin-top: 1.5em;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-card .share {
+            margin-top: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+        }
+
+        .team-card a {
+            color: white;
+            transition: .4s ease-in-out;
+            font-size: 1.2em;
+        }
+
+        .team-card a:hover {
+            color: red;
+        }
+
+        .team-card button {
+            padding: 0.8em 1.7em;
+            display: block;
+            margin: auto;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            background: #ffffff;
+            color: rgb(0, 0, 0);
+            transition: .4s ease-in-out;
+            margin-bottom: 1.5em;
+        }
+
+        .team-card button:hover {
+            background: red;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Team Grid Layout */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .team-card {
+                width: 90%;
+                max-width: 17em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-left">
-            <a href="index.html" class="brand">Creative Clicks</a>
+            <a href="极.html" class="brand">Creative Clicks</a>
         </div>
         <nav class="header-center">
             <ul>
@@ -30,7 +132,7 @@
         <section id="home" class="hero-section">
             <div class="hero-bg"></div>
             <div class="hero-content">
-                <h1 class="hero-title">Creative Clicks</h1>
+                <h1 class="hero-title">Creative Clicks</极>
                 <p class="hero-subtitle">Capturing life's moments, one click at a time. We offer professional photography and videography services, and share our passion through engaging workshops.</p>
                 <div class="hero-actions">
                     <a href="#book" class="hero-btn dark">Book an Event</a>
@@ -49,24 +151,48 @@
         <section id="team" class="section">
             <h2>Meet the Team</h2>
             <div class="team-grid">
-                <div class="team-member">
-                    <img src="team1.jpg" alt="Team Member 1">
-                    <h3>Akhil Mandaleeka</h3>
-                    <p>CEO, Lead Photographer & Videographer</p>
+                <!-- Akhil Mandaleeka -->
+                <div class="team-card">
+                    <div class="img" style="background-image: url('team1.jpg');"></div>
+                    <span>Akhil Mandaleeka</span>
+                    <p class="info">CEO, Lead Photographer & Videographer with over 8 years of experience in event photography and creative storytelling.</p>
+                    <div class="share">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <button>Portfolio</button>
                 </div>
-                <div class="team-member">
-                    <img src="team2.jpg" alt="Team Member 2">
-                    <h3>Kostik Savin</h3>
-                    <p>Photographer</p>
+
+                <!-- Kostik Savin -->
+                <div class="team-card">
+                    <div class="img" style="background-image: url('team2.jpg');"></div>
+                    <span>Kostik Savin</span>
+                    <p class="info">Professional photographer specializing in portrait and event photography with a keen eye for detail and composition.</p>
+                    <div class="share">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <button>Portfolio</button>
                 </div>
-                <div class="team-member">
-                    <img src="team3.jpg" alt="Team Member 3">
-                    <h3>Karman Hora</h3>
-                    <p>Social Media Lead</p>
+
+                <!-- Karman Hora -->
+                <div class="team-card">
+                    <div class="img" style="background-image: url('team3.jpg');"></div>
+                    <span>Karman Hora</span>
+                    <p class="info">Social Media Lead with expertise in digital marketing and content strategy to showcase our work to a wider audience.</p>
+                    <div class="share">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <button>Portfolio</button>
                 </div>
             </div>
         </section>
 
+        <!-- Rest of the index.html content remains the same -->
         <!-- Work -->
         <section id="work" class="section">
             <h2>My Work</h2>
@@ -110,36 +236,36 @@
                     <p id="heading" style="margin-bottom:2em;">Book a Session</p>
                     <div class="field" style="margin-bottom:1.2em;">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+                            <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 极 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"/>
                         </svg>
                         <input autocomplete="off" placeholder="Name" class="input-field" type="text" name="clientName" required style="margin-bottom:1.2em;">
                     </div>
-                    <div class="field" style="margin-bottom:1.2em;">
+                    <div class="极" style="margin-bottom:1.2em;">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-5.857 3.514a1 1 0 0 1-1.286 0L2 5.383V12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5.383z"/>
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 极v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-5.857 3.514a1 1 0 0 1-1.286 0L2 5.383V12a1 1 0 极 0 1 1h10a1 1 0 0 0 1-1V5.383z"/>
                         </svg>
                         <input placeholder="Email" class="input-field" type="email" name="clientEmail" required style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2zm1 0v12h8V2H4zm4 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            <path d="M3 2a1 1 0 0 1 极-1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2zm1 0v12h8极2H4zm4 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                         </svg>
                         <input placeholder="Phone Number" class="input-field" type="tel" name="phone" pattern="[0-9\-\+\s]{7,15}" required style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h.5A1.5 1.5 0 0 1 15 2.5v11A1.5 1.5 0 0 1 13.5 15h-11A1.5 1.5 0 0 1 1 13.5v-11A1.5 1.5 0 0 1 2.5 1H3V.5a.5.5 0 0 1 .5-.5zM2.5 2A.5.5 0 0 0 2 2.5V3h12v-.5a.5.5 0 0 0-.5-.5h-11zM14 4H2v9.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V4z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h.5A1.5 1.5 0 0 1 15 2.5v11A1.5 1.5 0 0 1 13.5 15h-11A1.5 1.5 0 0 1 1 13.5v-11A1.5 1.5 0 0 1 2.5 1H3V.5a.5.5 0 0 1 .5-.5zM2.5 2A.5.5 0 0 0 2 2.5V3极12v-.5a.5.5 0 0 0-.5-.5h-11zM14 4H2v9.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V4z"/>
                         </svg>
                         <input placeholder="Date" class="input-field" type="date" name="eventDate" required style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 9A4 4 0 1 1 8 4a4 4 0 0 1 0 8zm0-7a3 3 0 1 0 0 6A3 3 0 0 0 8 5zm0 5A2 2 0 1 1 8 6a2 2 0 0 1 0 4z"/>
+                            <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 9A4 4 0 1 1 8 4a4 4 0 0 1 0 8zm0-7a3 3 0 1 0 0 6A3 3 0 0 0 8 5zm极 5A2 2 0 1 1 8 6a2 2 0 0 1 极 4z"/>
                         </svg>
-                        <input placeholder="Number of Guests" class="input-field" type="number" min="1" name="guests" required style="margin-bottom:1.2em;">
+                        <极 placeholder="Number of Guests" class="input-field" type="number" min="1" name="guests" required style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill极="currentColor" viewBox="0 0 16 16">
                             <path d="M16 8a8 8 0 1 1-16 0A8 8 0 0 1 16 8z"/>
                         </svg>
                         <select class="input-field" name="service" id="service" required style="margin-bottom:1.2em;">
@@ -150,7 +276,7 @@
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
                         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 9A4 4 0 1 1 8 4a4 4 0 0 1 0 8zm0-7a3 3 0 1 0 0 6A3 3 0 0 0 8 5zm0 5A2 2 0 1 1 8 6a2 2 0 0 1 0 4z"/>
+                            <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 9A4 4 0 1 1 8 4a4 4 0 0 1 0 8zm0-7a3 3 0 1 0 0 极A3 3 0 0 0 8 5zm0 5A2 2 0 1 极 8 6a2 2 0 0 1 0 4z"/>
                         </svg>
                         <input placeholder="Event Duration (Hours)" class="input-field" type="number" min="1" name="hours" id="hours" value="1" required style="margin-bottom:1.2em;">
                     </div>
@@ -172,7 +298,6 @@
         </div>
     </footer>
 
-
     <script>
         function updateTotalCost() {
             const service = document.getElementById('service').value;
@@ -186,7 +311,6 @@
         document.getElementById('service').addEventListener('change', updateTotalCost);
         document.getElementById('hours').addEventListener('input', updateTotalCost);
         window.addEventListener('DOMContentLoaded', updateTotalCost);
-
     </script>
 </body>
 </html>
