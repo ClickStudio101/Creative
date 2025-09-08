@@ -94,12 +94,78 @@
             margin-top: 2rem;
         }
         
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5em;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .header-center ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-center ul li {
+            margin: 0 1em;
+        }
+
+        .header-center ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+        }
+
+        /* Mobile Styles */
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .header-center ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                padding: 1em 0;
+            }
+
+            .header-center ul.show {
+                display: flex;
+            }
+
+            .header-center ul li {
+                margin: 0.5em 0;
+                text-align: center;
+            }
+
+            .header-center ul li a {
+                display: block;
+                padding: 0.5em 1em;
+            }
+
             .team-grid {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .team-card {
                 width: 90%;
                 max-width: 17em;
@@ -123,6 +189,11 @@
         </nav>
         <div class="header-right">
             <a href="book.html" class="book-btn">Book Now</a>
+            <button class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
     <main>
@@ -201,5 +272,32 @@
     <footer>
     </footer>
     <script src="main.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.header-center ul');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.header-center ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('show');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
