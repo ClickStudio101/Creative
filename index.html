@@ -6,6 +6,7 @@
     <title>Creative Clicks - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/Creative clicks logo.jpeg">
+    <script src="main.js" defer></script>
     <style>
         /* From Uiverse.io by Praashoo7 */
         .card {
@@ -91,6 +92,7 @@
 
         .header-center ul {
             display: flex;
+            flex-wrap: wrap;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -105,6 +107,10 @@
             color: #000;
             font-weight: 500;
         }
+
+        /* Prevent header overflow on mid-widths */
+        .header-left, .header-center, .header-right { min-width: 0; }
+        .header-center { overflow: hidden; }
 
         /* Mobile Styles */
         @media (max-width: 768px) {
@@ -141,53 +147,74 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="header-left">
-            <a href="index.html" class="brand">Creative Clicks</a>
+            <a href="#home" class="brand">Creative Clicks</a>
         </div>
-        <nav class="header-center">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
+        <nav class="header-center" role="navigation" aria-label="Primary Navigation">
+            <ul id="primaryNav">
+                <li><a href="#home" class="active">Home</a></li>
+                                <li><a href="about.html">About</a></li>
                 <li><a href="photography.html">Photography</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="workshops.html">Workshops</a></li>
             </ul>
         </nav>
         <div class="header-right">
-            <a href="book.html" class="book-btn">Book Now</a>
-            <button class="hamburger" id="hamburger">
+            <a href="#book" class="book-btn">Book Now</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="primaryNav" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
         </div>
     </header>
-    <main>
+    <main role="main">
         <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-bg"></div>
+        <section id="home" class="hero-section reveal" aria-labelledby="hero-title">
+            <div class="hero-bg" aria-hidden="true"></div>
             <div class="hero-content">
-                <h1 class="hero-title">Creative Clicks</h1>
+                <h1 class="hero-title" id="hero-title">Creative Clicks</h1>
                 <p class="hero-subtitle">Capturing life's moments, one click at a time. We offer professional photography and videography services, and share our passion through engaging workshops.</p>
-                <div class="hero-actions">
+                <div class="hero-actions" role="group" aria-label="Primary call to actions">
                     <a href="#book" class="hero-btn dark">Book an Event</a>
                     <a href="#workshops" class="hero-btn light">Join a Workshop</a>
                 </div>
             </div>
         </section>
 
+        
+        
+        <!-- Testimonials -->
+        <section id="testimonials" class="section reveal" aria-labelledby="testimonials-title">
+            <h2 id="testimonials-title">Testimonials</h2>
+            <div class="testimonial-grid" role="list">
+                <figure class="testimonial-card" role="listitem">
+                    <blockquote>“Professional, friendly, and the photos were stunning. Couldn’t have asked for more.”</blockquote>
+                    <figcaption>— Priya S.</figcaption>
+                </figure>
+                <figure class="testimonial-card" role="listitem">
+                    <blockquote>“They captured our event perfectly. The video edit was cinematic and crisp.”</blockquote>
+                    <figcaption>— David R.</figcaption>
+                </figure>
+                <figure class="testimonial-card" role="listitem">
+                    <blockquote>“Great experience end-to-end. Smooth booking and exceptional results.”</blockquote>
+                    <figcaption>— Aisha K.</figcaption>
+                </figure>
+            </div>
+        </section>
+
         <!-- Team -->
-        <section id="team" class="section">
-            <h2>Meet the Team</h2>
+        <section id="team" class="section reveal" aria-labelledby="team-title">
+            <h2 id="team-title">Meet the Team</h2>
             <div class="team-grid">
                 <div class="card">
                     <div class="img"></div>
                     <span>Akhil Mandaleeka</span>
                     <p class="info">CEO, Photographer & Videographer</p>
                     <div class="share">
-                        <a href="#" target="_blank">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <a href="#" target="_blank" aria-label="Instagram profile">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 0C5.832 0 5.556.01 4.703.048c-.852.04-1.434.175-1.942.372a3.92 3.92 0 0 0-1.417.923A3.92 3.92 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.556 0 5.832 0 8c0 2.168.01 2.444.048 3.297.04.852.174 1.434.372 1.942.198.51.478.972.923 1.417.445.445.907.725 1.417.923.508.197 1.09.332 1.942.372C5.556 15.99 5.832 16 8 16s2.444-.01 3.297-.048c.852-.04 1.434-.175 1.942-.372a3.92 3.92 0 0 0 1.417-.923c.445-.445.725-.907.923-1.417.197-.508.332-1.09.372-1.942C15.99 10.444 16 10.168 16 8c0-2.168-.01-2.444-.048-3.297-.04-.852-.175-1.434-.372-1.942a3.92 3.92 0 0 0-.923-1.417 3.92 3.92 0 0 0-1.417-.923c-.508-.197-1.09-.332-1.942-.372C10.444.01 10.168 0 8 0zM8 1.459c2.136 0 2.387.008 3.231.047.78.036 1.204.166 1.486.276.373.145.64.319.918.597.278.278.452.545.597.918.11.282.24.706.276 1.486.039.844.047 1.095.047 3.231s-.008 2.387-.047 3.231c-.036.78-.166 1.204-.276 1.486a2.462 2.462 0 0 1-.597.918 2.462 2.462 0 0 1-.918.597c-.282.11-.706.24-1.486.276-.844.039-1.095.047-3.231.047s-2.387-.008-3.231-.047c-.78-.036-1.204-.166-1.486-.276a2.462 2.462 0 0 1-.918-.597 2.462 2.462 0 0 1-.597-.918c-.11-.282-.24-.706-.276-1.486C1.467 10.387 1.459 10.136 1.459 8s.008-2.387.047-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.597-.918.278-.278.545-.452.918-.597.282-.11.706-.24 1.486-.276C5.613 1.467 5.864 1.459 8 1.459zm0 2.378a4.163 4.163 0 1 0 0 8.326 4.163 4.163 0 0 0 0-8.326zm0 6.837a2.674 2.674 0 1 1 0-5.348 2.674 2.674 0 0 1 0 5.348zm4.271-7.555a.974.974 0 1 1-1.948 0 .974.974 0 0 1 1.948 0z"/>
                           </svg>
                         </a>
@@ -198,8 +225,8 @@
                     <span>Kostik Savin</span>
                     <p class="info">Photographer</p>
                     <div class="share">
-                        <a href="#" target="_blank">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <a href="#" target="_blank" aria-label="Instagram profile">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 0C5.832 0 5.556.01 4.703.048c-.852.04-1.434.175-1.942.372a3.92 3.92 0 0 0-1.417.923A3.92 3.92 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.556 0 5.832 0 8c0 2.168.01 2.444.048 3.297.04.852.174 1.434.372 1.942.198.51.478.972.923 1.417.445.445.907.725 1.417.923.508.197 1.09.332 1.942.372C5.556 15.99 5.832 16 8 16s2.444-.01 3.297-.048c.852-.04 1.434-.175 1.942-.372a3.92 3.92 0 0 0 1.417-.923c.445-.445.725-.907.923-1.417.197-.508.332-1.09.372-1.942C15.99 10.444 16 10.168 16 8c0-2.168-.01-2.444-.048-3.297-.04-.852-.175-1.434-.372-1.942a3.92 3.92 0 0 0-.923-1.417 3.92 3.92 0 0 0-1.417-.923c-.508-.197-1.09-.332-1.942-.372C10.444.01 10.168 0 8 0zM8 1.459c2.136 0 2.387.008 3.231.047.78.036 1.204.166 1.486.276.373.145.64.319.918.597.278.278.452.545.597.918.11.282.24.706.276 1.486.039.844.047 1.095.047 3.231s-.008 2.387-.047 3.231c-.036.78-.166 1.204-.276 1.486a2.462 2.462 0 0 1-.597.918 2.462 2.462 0 0 1-.918.597c-.282.11-.706.24-1.486.276-.844.039-1.095.047-3.231.047s-2.387-.008-3.231-.047c-.78-.036-1.204-.166-1.486-.276a2.462 2.462 0 0 1-.918-.597 2.462 2.462 0 0 1-.597-.918c-.11-.282-.24-.706-.276-1.486C1.467 10.387 1.459 10.136 1.459 8s.008-2.387.047-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.597-.918.278-.278.545-.452.918-.597.282-.11.706-.24 1.486-.276C5.613 1.467 5.864 1.459 8 1.459zm0 2.378a4.163 4.163 0 1 0 0 8.326 4.163 4.163 0 0 0 0-8.326zm0 6.837a2.674 2.674 0 1 1 0-5.348 2.674 2.674 0 0 1 0 5.348zm4.271-7.555a.974.974 0 1 1-1.948 0 .974.974 0 0 1 1.948 0z"/>
                           </svg>
                         </a>
@@ -210,8 +237,8 @@
                     <span>Karman Hora</span>
                     <p class="info">Social Media Lead & Website Creator</p>
                     <div class="share">
-                        <a href="#" target="_blank">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <a href="#" target="_blank" aria-label="Instagram profile">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 0C5.832 0 5.556.01 4.703.048c-.852.04-1.434.175-1.942.372a3.92 3.92 0 0 0-1.417.923A3.92 3.92 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.556 0 5.832 0 8c0 2.168.01 2.444.048 3.297.04.852.174 1.434.372 1.942.198.51.478.972.923 1.417.445.445.907.725 1.417.923.508.197 1.09.332 1.942.372C5.556 15.99 5.832 16 8 16s2.444-.01 3.297-.048c.852-.04 1.434-.175 1.942-.372a3.92 3.92 0 0 0 1.417-.923c.445-.445.725-.907.923-1.417.197-.508.332-1.09.372-1.942C15.99 10.444 16 10.168 16 8c0-2.168-.01-2.444-.048-3.297-.04-.852-.175-1.434-.372-1.942a3.92 3.92 0 0 0-.923-1.417 3.92 3.92 0 0 0-1.417-.923c-.508-.197-1.09-.332-1.942-.372C10.444.01 10.168 0 8 0zM8 1.459c2.136 0 2.387.008 3.231.047.78.036 1.204.166 1.486.276.373.145.64.319.918.597.278.278.452.545.597.918.11.282.24.706.276 1.486.039.844.047 1.095.047 3.231s-.008 2.387-.047 3.231c-.036.78-.166 1.204-.276 1.486a2.462 2.462 0 0 1-.597.918 2.462 2.462 0 0 1-.918.597c-.282.11-.706.24-1.486.276-.844.039-1.095.047-3.231.047s-2.387-.008-3.231-.047c-.78-.036-1.204-.166-1.486-.276a2.462 2.462 0 0 1-.918-.597 2.462 2.462 0 0 1-.597-.918c-.11-.282-.24-.706-.276-1.486C1.467 10.387 1.459 10.136 1.459 8s.008-2.387.047-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.597-.918.278-.278.545-.452.918-.597.282-.11.706-.24 1.486-.276C5.613 1.467 5.864 1.459 8 1.459zm0 2.378a4.163 4.163 0 1 0 0 8.326 4.163 4.163 0 0 0 0-8.326zm0 6.837a2.674 2.674 0 1 1 0-5.348 2.674 2.674 0 0 1 0 5.348zm4.271-7.555a.974.974 0 1 1-1.948 0 .974.974 0 0 1 1.948 0z"/>
                           </svg>
                         </a>
@@ -221,8 +248,8 @@
         </section>
 
         <!-- Work -->
-        <section id="work" class="section">
-            <h2>My Work</h2>
+        <section id="work" class="section reveal" aria-labelledby="work-title">
+            <h2 id="work-title">My Work</h2>
             <div class="work-links">
                 <a href="photography.html" class="cta">View Photography Portfolio</a>
                 <a href="videos.html" class="cta">View Video Portfolio</a>
@@ -230,10 +257,10 @@
         </section>
 
         <!-- Workshops -->
-        <section id="workshops" class="section">
-            <h2>Workshops</h2>
+        <section id="workshops" class="section reveal" aria-labelledby="workshops-title">
+            <h2 id="workshops-title">Workshops</h2>
             <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary.</p>
-            <form id="workshopForm" action="https://formspree.io/f/xwpnnlpw" method="POST">
+            <form id="workshopForm" action="https://formspree.io/f/xwpnnlpw" method="POST" aria-label="Workshop booking form">
                 <label for="workshopType">Select Workshop:</label>
                 <select id="workshopType" name="Workshop Type" required>
                     <option value="3-Day Workshop ($15)">3-Day Workshop ($15)</option>
@@ -242,12 +269,12 @@
                 </select>
 
                 <label for="studentName">Your Name:</label>
-                <input type="text" id="studentName" name="Name" required>
+                <input type="text" id="studentName" name="Name" required aria-label="Your name">
 
                 <label for="studentEmail">Email:</label>
-                <input type="email" id="studentEmail" name="Email" required>
+                <input type="email" id="studentEmail" name="Email" required aria-label="Email address">
 
-                <div id="workshopPrice">Price: $15</div>
+                <div id="workshopPrice" aria-live="polite">Price: $15</div>
                 <input type="hidden" name="Total Price" id="workshopTotalPrice" value="15">
 
                 <button type="submit" class="form-btn">Book Workshop</button>
@@ -255,61 +282,62 @@
         </section>
 
         <!-- Book Event -->
-        <section id="book" class="book-section">
-            <h1 class="book-title">Book Our Services</h1>
+        <section id="book" class="book-section reveal" aria-labelledby="book-title">
+            <h1 class="book-title" id="book-title">Book Our Services</h1>
             <p class="book-subtitle">Let's capture your special event. Fill out the form below to get a quote and check our availability.</p>
             <div class="book-card">
-                <form class="form" id="bookingForm" action="https://formspree.io/f/meollazo" method="POST">
+                <form class="form" id="bookingForm" action="https://formspree.io/f/meollazo" method="POST" aria-label="Event booking form">
                     <p id="heading" style="margin-bottom:2em;">Book a Session</p>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
                         </svg>
-                        <input autocomplete="off" placeholder="Name" class="input-field" type="text" name="clientName" required style="margin-bottom:1.2em;">
+                        <input autocomplete="off" placeholder="Name" class="input-field" type="text" name="clientName" required aria-label="Your full name" style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-5.857 3.514a1 1 0 0 1-1.286 0L2 5.383V12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5.383z"/>
                         </svg>
-                        <input placeholder="Email" class="input-field" type="email" name="clientEmail" required style="margin-bottom:1.2em;">
+                        <input placeholder="Email" class="input-field" type="email" name="clientEmail" required aria-label="Email address" style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2zm1 0v12h8V2H4zm4 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                         </svg>
-                        <input placeholder="Phone Number" class="input-field" type="tel" name="phone" pattern="[0-9\-\+\s]{7,15}" required style="margin-bottom:1.2em;">
+                        <input placeholder="Phone Number" class="input-field" type="tel" name="phone" pattern="[0-9\-\+\s]{7,15}" required aria-label="Phone number" style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h.5A1.5 1.5 0 0 1 15 2.5v11A1.5 1.5 0 0 1 13.5 15h-11A1.5 1.5 0 0 1 1 13.5v-11A1.5 1.5 0 0 1 2.5 1H3V.5a.5.5 0 0 1 .5-.5zM2.5 2A.5.5 0 0 0 2 2.5V3h12v-.5a.5.5 0 0 0-.5-.5h-11zM14 4H2v9.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V4z"/>
                         </svg>
-                        <input placeholder="Date" class="input-field" type="date" name="eventDate" required style="margin-bottom:1.2em;">
+                        <input placeholder="Date" class="input-field" type="date" name="eventDate" required aria-label="Event date" style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 9A4 4 0 1 1 8 4a4 4 0 0 1 0 8zm0-7a3 3 0 1 0 0 6A3 3 0 0 0 8 5zm0 5A2 2 0 1 1 8 6a2 2 0 0 1 0 4z"/>
                         </svg>
-                        <input placeholder="Number of Guests" class="input-field" type="number" min="1" name="guests" required style="margin-bottom:1.2em;">
+                        <input placeholder="Number of Guests" class="input-field" type="number" min="1" name="guests" required aria-label="Number of guests" style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M16 8a8 8 0 1 1-16 0A8 8 0 0 1 16 8z"/>
                         </svg>
-                        <select class="input-field" name="service" id="service" required style="margin-bottom:1.2em;">
+                        <select class="input-field" name="service" id="service" required aria-label="Select service" style="margin-bottom:1.2em;">
                             <option value="">Select Service</option>
                             <option value="photography">Photography ($30/hr)</option>
                             <option value="videography">Videography ($40/hr)</option>
                         </select>
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                             <path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zm0 9A4 4 0 1 1 8 4a4 4 0 0 1 0 8zm0-7a3 3 0 1 0 0 6A3 3 0 0 0 8 5zm0 5A2 2 0 1 1 8 6a2 2 0 0 1 0 4z"/>
                         </svg>
-                        <input placeholder="Event Duration (Hours)" class="input-field" type="number" min="1" name="hours" id="hours" value="1" required style="margin-bottom:1.2em;">
+                        <input placeholder="Event Duration (Hours)" class="input-field" type="number" min="1" name="hours" id="hours" value="1" required aria-label="Event duration in hours" style="margin-bottom:1.2em;">
                     </div>
                     <div class="field" style="justify-content: flex-end;">
-                        <span id="totalCost" style="color:#000;font-weight:bold;font-size:1.2em;">Total: $0</span>
+                        <span id="totalCost" style="color:#000;font-weight:bold;font-size:1.2em;" aria-live="polite">Total: $0</span>
                     </div>
+                    <input type="hidden" name="Total Price" id="bookingTotalPrice" value="0">
                     <div class="btn">
                         <button class="button1" type="submit" style="font-size:1.3em;padding:1em 3em; margin-top:1.5em;">Book Now</button>
                     </div>
@@ -319,7 +347,7 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <p>&copy; 2023 Creative Clicks. All rights reserved.</p>
         </div>
@@ -339,11 +367,13 @@
         document.getElementById('hours').addEventListener('input', updateTotalCost);
         window.addEventListener('DOMContentLoaded', updateTotalCost);
 
-        // Hamburger menu functionality
+        // Hamburger menu functionality with ARIA support
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.querySelector('.header-center ul');
 
         hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', String(!isExpanded));
             navMenu.classList.toggle('show');
             hamburger.classList.toggle('active');
         });
@@ -354,6 +384,7 @@
             link.addEventListener('click', () => {
                 navMenu.classList.remove('show');
                 hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -362,6 +393,7 @@
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('show');
                 hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             }
         });
     </script>
