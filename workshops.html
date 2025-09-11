@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,6 +180,34 @@
                 navMenu.classList.remove('show');
                 hamburger.classList.remove('active');
             }
+        });
+
+        // Quiz logic
+        document.getElementById('submitQuiz').addEventListener('click', () => {
+            const selected = document.querySelector('input[name="eventStyle"]:checked');
+            const resultDiv = document.getElementById('quizResult');
+            if (!selected) {
+                resultDiv.textContent = 'Please select an event style.';
+                return;
+            }
+            let recommendation = '';
+            switch (selected.value) {
+                case 'casual':
+                    recommendation = 'We recommend our Casual Moments Package - perfect for relaxed and informal events.';
+                    break;
+                case 'formal':
+                    recommendation = 'Our Elegant Affair Package suits formal and sophisticated events.';
+                    break;
+                case 'fun':
+                    recommendation = 'Choose the Lively Celebration Package for fun and energetic events.';
+                    break;
+                case 'intimate':
+                    recommendation = 'The Intimate Memories Package is ideal for personal and close-knit gatherings.';
+                    break;
+                default:
+                    recommendation = 'Please select a valid event style.';
+            }
+            resultDiv.textContent = recommendation;
         });
     </script>
 </body>
