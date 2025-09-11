@@ -104,7 +104,7 @@
     --accent:#000000;
     --glass: rgba(0,0,0,0.05);
     --radius:8px;
-    --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, system-ui, 'Apple Color Emoji', 'Segoe UI Emoji';
     --primary-text: #000000;
     --secondary-text: #666666;
     --border-color: #e0e0e0;
@@ -127,10 +127,12 @@ body{
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: var(--font-family);
     background: #fff;
     color: #111;
     min-height: 100vh;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 header {
@@ -138,7 +140,9 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background: var(--bg);
+    background: rgba(255,255,255,0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -756,4 +760,28 @@ select {
 }
 select:focus {
     border-color: var(--accent);
+}
+
+/* Section scroll offset for sticky header */
+section, .book-section, .hero-section { scroll-margin-top: 80px; }
+
+
+
+/* Testimonials */
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.testimonial-card { background: var(--card); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem 1.25rem; }
+.testimonial-card blockquote { margin: 0 0 .75rem 0; color: var(--primary-text); font-style: italic; }
+.testimonial-card figcaption { color: var(--secondary-text); font-weight: 600; }
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.reveal-visible { opacity: 1; transform: none; }
+
+/* Hero */
+.hero-section { margin-bottom: 0; }
+.hero-bg { background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02)), url('hero-bg.jpg') center/cover no-repeat; }
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .service-media { height: 140px; }
 }
