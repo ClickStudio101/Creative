@@ -144,6 +144,38 @@
                 padding: 0.5em 1em;
             }
         }
+
+        /* Crime Scene Tape Styles */
+        .coming-soon-tape {
+            position: fixed;
+            top: 160px; /* Adjusted to cover the "Your Name" label and input */
+            left: 0;
+            right: 0;
+            width: 100vw;
+            height: 50px;
+            background: repeating-linear-gradient(
+                45deg,
+                yellow,
+                yellow 10px,
+                black 10px,
+                black 20px
+            );
+            background-size: 20px 20px;
+            animation: tape-slide 3s ease-in-out infinite;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        @keyframes tape-slide {
+            0% { left: -100%; }
+            50% { left: 0; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -269,27 +301,28 @@
         </section>
 
         <!-- Workshops -->
-        <section id="workshops" class="section reveal" aria-labelledby="workshops-title">
+        <section id="workshops" class="section reveal" aria-labelledby="workshops-title" style="position: relative;">
             <h2 id="workshops-title">Workshops</h2>
+            <div class="coming-soon-tape">COMING SOON</div>
             <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary.</p>
-            <form id="workshopForm" action="https://formspree.io/f/xwpnnlpw" method="POST" aria-label="Workshop booking form">
+            <form id="workshopForm" action="https://formspree.io/f/xwpnnlpw" method="POST" aria-label="Workshop booking form" style="pointer-events: none; opacity: 0.5;">
                 <label for="workshopType">Select Workshop:</label>
-                <select id="workshopType" name="Workshop Type" required>
+                <select id="workshopType" name="Workshop Type" required disabled>
                     <option value="3-Day Workshop ($15)">3-Day Workshop ($15)</option>
                     <option value="Advanced Workshop ($25)">Advanced Workshop ($25)</option>
                     <option value="Photo Editing Workshop ($20)">Photo Editing Workshop ($20)</option>
                 </select>
 
                 <label for="studentName">Your Name:</label>
-                <input type="text" id="studentName" name="Name" required aria-label="Your name">
+                <input type="text" id="studentName" name="Name" required aria-label="Your name" disabled>
 
                 <label for="studentEmail">Email:</label>
-                <input type="email" id="studentEmail" name="Email" required aria-label="Email address">
+                <input type="email" id="studentEmail" name="Email" required aria-label="Email address" disabled>
 
                 <div id="workshopPrice" aria-live="polite">Price: $15</div>
                 <input type="hidden" name="Total Price" id="workshopTotalPrice" value="15">
 
-                <button type="submit" class="form-btn">Book Workshop</button>
+                <button type="submit" class="form-btn" disabled>Book Workshop</button>
             </form>
         </section>
 
