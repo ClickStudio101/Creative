@@ -88,6 +88,38 @@
                 padding: 0.5em 1em;
             }
         }
+
+        /* Crime Scene Tape Styles */
+        .coming-soon-tape {
+            position: fixed;
+            top: 50%;
+            left: -100%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 50px;
+            background: repeating-linear-gradient(
+                45deg,
+                yellow,
+                yellow 10px,
+                black 10px,
+                black 20px
+            );
+            background-size: 20px 20px;
+            animation: tape-slide 3s ease-in-out infinite;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        @keyframes tape-slide {
+            0% { left: -100%; }
+            50% { left: 0; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -115,6 +147,7 @@
     </header>
     <main>
         <section class="section">
+            <div class="coming-soon-tape">COMING SOON</div>
             <h1>Workshops</h1>
             <p>Join our 3-day online workshop for just $15 per student. We also host other workshops—prices may vary.</p>
             <form id="workshopForm" action="https://formspree.io/f/meollazo" method="POST">
@@ -123,6 +156,7 @@
                     <option value="3-Day Workshop ($15)">3-Day Workshop ($15)</option>
                     <option value="Advanced Workshop ($25)">Advanced Workshop ($25)</option>
                     <option value="Photo Editing Workshop ($20)">Photo Editing Workshop ($20)</option>
+                    <option value="Videography (Coming Soon)" disabled>Videography (Coming Soon)</option>
                 </select>
 
                 <label for="studentName">Your Name:</label>
@@ -183,32 +217,7 @@
         });
 
         // Quiz logic
-        document.getElementById('submitQuiz').addEventListener('click', () => {
-            const selected = document.querySelector('input[name="eventStyle"]:checked');
-            const resultDiv = document.getElementById('quizResult');
-            if (!selected) {
-                resultDiv.textContent = 'Please select an event style.';
-                return;
-            }
-            let recommendation = '';
-            switch (selected.value) {
-                case 'casual':
-                    recommendation = 'We recommend our Casual Moments Package - perfect for relaxed and informal events.';
-                    break;
-                case 'formal':
-                    recommendation = 'Our Elegant Affair Package suits formal and sophisticated events.';
-                    break;
-                case 'fun':
-                    recommendation = 'Choose the Lively Celebration Package for fun and energetic events.';
-                    break;
-                case 'intimate':
-                    recommendation = 'The Intimate Memories Package is ideal for personal and close-knit gatherings.';
-                    break;
-                default:
-                    recommendation = 'Please select a valid event style.';
-            }
-            resultDiv.textContent = recommendation;
-        });
+        // Removed quiz logic as no quiz element exists in the current page
     </script>
 </body>
 </html>
