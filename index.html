@@ -368,6 +368,12 @@
                             <option value="">Select Service</option>
                             <option value="photography">Photography ($30/hr)</option>
                             <option value="videography" disabled>Videography (Coming Soon)</option>
+                            <option value="event-photography">Event Photography ($35/hr)</option>
+                            <option value="portrait-photography">Portrait Photography ($40/hr)</option>
+                            <option value="wedding-photography">Wedding Photography ($50/hr)</option>
+                            <option value="commercial-photography">Commercial Photography ($45/hr)</option>
+                            <option value="photo-editing">Photo Editing Service ($25/hr)</option>
+                            <option value="workshop">Photography Workshop ($15/session)</option>
                         </select>
                     </div>
                     <div class="field" style="margin-bottom:1.2em;">
@@ -401,6 +407,12 @@
             const hours = parseInt(document.getElementById('hours').value) || 0;
             let rate = 0;
             if (service === 'photography') rate = 30;
+            else if (service === 'event-photography') rate = 35;
+            else if (service === 'portrait-photography') rate = 40;
+            else if (service === 'wedding-photography') rate = 50;
+            else if (service === 'commercial-photography') rate = 45;
+            else if (service === 'photo-editing') rate = 25;
+            else if (service === 'workshop') rate = 15;
             else if (service === 'videography') rate = 40;
             const total = rate * hours;
             document.getElementById('totalCost').textContent = 'Total: $' + total;
