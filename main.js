@@ -42,7 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const service = serviceEl.value;
         const hours = parseInt(hoursEl.value, 10) || 0;
         let rate = 0;
-        if (service === 'photography') rate = 30;
+        if (service === 'portrait') rate = 30;
+        else if (service === 'senior') rate = 20;
+        else if (service === 'family') rate = 40;
+        else if (service === 'pet') rate = 30;
+        else if (service === 'event') rate = 45;
         else if (service === 'videography') rate = 40;
         const total = rate * hours;
         totalCostEl.textContent = `Total: $${total}`;
