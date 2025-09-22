@@ -9,43 +9,53 @@
     <style>
         /* Uiverse.io Card Styles */
         .team-card {
-            width: 17em;
-            height: 22.5em;
+            width: 28em;
+            height: 10em;
             background: #171717;
             transition: 1s ease-in-out;
             clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
             border-top-right-radius: 20px;
             border-bottom-left-radius: 20px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             margin: 1em;
+            padding: 1em;
+        }
+
+        .team-card .text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
         }
 
         .team-card span {
-            font-weight: bold;
+            font-weight: normal;
             color: white;
-            text-align: center;
+            text-align: left;
             display: block;
-            font-size: 1em;
-            margin-top: 0.5em;
+            font-size: 1.1em;
+            margin: 0 0 0.3em 0;
         }
 
         .team-card .info {
             font-weight: 400;
             color: white;
             display: block;
-            text-align: center;
-            font-size: 0.72em;
-            margin: 1em;
+            text-align: left;
+            font-size: 0.75em;
+            margin: 0;
+            line-height: 1.3;
         }
 
         .team-card .img {
-            width: 4.8em;
-            height: 4.8em;
+            width: 6em;
+            height: 6em;
             background: white;
             border-radius: 15px;
-            margin: auto;
-            margin-top: 1.5em;
+            margin-right: 1.5em;
+            margin-top: 0;
+            flex-shrink: 0;
             background-size: cover;
             background-position: center;
         }
@@ -168,7 +178,29 @@
 
             .team-card {
                 width: 90%;
-                max-width: 17em;
+                max-width: 28em;
+                flex-direction: column;
+                height: auto;
+                padding: 1.5em 1em;
+            }
+
+            .team-card .img {
+                margin-right: 0;
+                margin-bottom: 1em;
+                width: 5em;
+                height: 5em;
+            }
+
+            .team-card .text-content {
+                text-align: center;
+            }
+
+            .team-card span {
+                text-align: center;
+            }
+
+            .team-card .info {
+                text-align: center;
             }
         }
     </style>
@@ -204,8 +236,10 @@
                 <!-- Akhil Mandaleeka -->
                 <div class="team-card">
                     <div class="img" style="background-image: url('images/Workers Photo 2.JPG'); background-size: cover; background-position: center;"></div>
-                    <span>Akhil Mandaleeka</span>
-                    <p class="info">CEO, Lead Photographer & Videographer with over 8 years of experience in event photography and creative storytelling.</p>
+                    <div class="text-content">
+                        <span>Akhil Mandaleeka</span>
+                        <p class="info">CEO, Lead Photographer & Videographer with over 8 years of experience in event photography and creative storytelling.</p>
+                    </div>
                     <div class="share">
                         <a href="#" aria-label="Instagram profile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -213,14 +247,15 @@
                             </svg>
                         </a>
                     </div>
-                    <button>Portfolio</button>
                 </div>
 
                 <!-- Kostik Savin -->
                 <div class="team-card">
                     <div class="img" style="background-image: url('images/IMG_4051.jpg'); background-size: cover; background-position: center 20%;"></div>
-                    <span>Kostik Savin</span>
-                    <p class="info">Professional photographer specializing in portrait and event photography with a keen eye for detail and composition.</p>
+                    <div class="text-content">
+                        <span>Kostik Savin</span>
+                        <p class="info">Professional photographer specializing in portrait and event photography with a keen eye for detail and composition.</p>
+                    </div>
                     <div class="share">
                         <a href="https://www.instagram.com/kostiksavin.photo/?utm_source=ig_web_button_share_sheet" aria-label="Instagram profile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -228,14 +263,15 @@
                             </svg>
                         </a>
                     </div>
-                    <button>Portfolio</button>
                 </div>
 
                 <!-- Karman Hora -->
                 <div class="team-card">
                     <div class="img" style="background-image: url('team3.jpg');"></div>
-                    <span>Karman Hora</span>
-                    <p class="info">Social Media Lead with expertise in digital marketing and content strategy to showcase our work to a wider audience.</p>
+                    <div class="text-content">
+                        <span>Karman Hora</span>
+                        <p class="info">Social Media Lead with expertise in digital marketing and content strategy to showcase our work to a wider audience.</p>
+                    </div>
                     <div class="share">
                         <a href="#" aria-label="Instagram profile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -243,13 +279,14 @@
                             </svg>
                         </a>
                     </div>
-                    <button>Portfolio</button>
                 </div>
                 <!-- Nitya Anand -->
                 <div class="team-card">
                     <div class="img" style="background-image: url('images/Worker Photo 1.JPG'); background-size: cover; background-position: center 20%;"></div>
-                    <span>Nitya Anand</span>
-                    <p class="info">Photographer & Editor</p>
+                    <div class="text-content">
+                        <span>Nitya Anand</span>
+                        <p class="info">Photographer & Editor</p>
+                    </div>
                     <div class="share">
                         <a href="#" aria-label="Instagram profile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -257,7 +294,6 @@
                             </svg>
                         </a>
                     </div>
-                    <button>Portfolio</button>
                 </div>
             </div>
             <div class="work-subsection">
